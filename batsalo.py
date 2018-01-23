@@ -80,12 +80,12 @@ while True:
 						s = s.split(">",1)[1]
 						s = s.split ("<",1)[0]
 						if("REDEEM" not in s and "REGISTER" not in s and "LOGIN" not in s):
-							with open('C:pathtocsv.csv', 'rt') as f:
+							with open(configbot.pathtocsv, 'rt') as f:
 	     							reader = csv.reader(f, delimiter=',')
      								for row in reader:
      									if s in row:
 	     									duplicate = True
-							fd = open('pathtocsv.csv','a')
+							fd = open(configbot.pathtocsv,'a')
 							fd.write("%s\n" % s)
 							fd.close()
 						if "HTTP://" in s:
@@ -151,7 +151,7 @@ while True:
 								if (s[i].isdigit()):
 									score-=0.3
 					good=False
-					fd = open('pathtocsv.csv','a')
+					fd = open(configbot.pathtocsv,'a')
 					fd.write("%s\n" % (100-score))
 					fd.close()
 					if (score < 40):
