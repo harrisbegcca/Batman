@@ -68,7 +68,7 @@ while True:
 
 					s = s.split(">",1)[1]
 					s = s.split ("<",1)[0]
-					if "Hi, I'm generalpnos" in s:
+					if ("Hi, I'm %s" % (configbot.username)) in s:
 						a=True
 						f = False
 
@@ -161,7 +161,7 @@ while True:
 						good=True
 
 					if (duplicate == True):
-						message += " However, another user has posted a post with the same title as you. This can mean two things: a) you have reposted, or b) you need a creative title. Just a thought, though! Sincerely yours, GeneralPNOS"
+						message += " However, another user has posted a post with the same title as you. This can mean two things: a) you have reposted, or b) you need a creative title. Just a thought, though! Sincerely yours, %s" % (configbot.username)
 					time.sleep(2)
 					if (good):
 						browser.find_element_by_id("txtCommentBody").send_keys("Hi, I'm %s, and according to my newly written algorithm, this post is %s percent likely spam. %s" % (configbot.username,(100-score), message))
